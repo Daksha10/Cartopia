@@ -1,7 +1,4 @@
 Flask==3.0.0
 Flask-Bootstrap==3.3.7.1
 mysql-connector-python==9.2.0
-peewee==3.17.7
-python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
-rich==13.9.3
