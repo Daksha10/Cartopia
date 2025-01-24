@@ -13,9 +13,7 @@ CORS(app)
 # Establish MySQL connection
 connection = get_sql_connection()
 
-@app.route('/api/test', methods=['GET'])
-def test_endpoint():
-    return jsonify({"message": "Backend is working!"})
+
 
 # Serve the main HTML page
 @app.route('/')
@@ -25,7 +23,7 @@ def index():
 # Serve static files (CSS, JS, Images)
 @app.route('/static/<path:path>')
 def send_static(path):
-    return send_from_directory(os.path.join(app.static_folder, 'static'), path)
+    return send_from_directory("ui/static", path)
 
 # API Routes
 @app.route('/getUOM', methods=['GET'])
