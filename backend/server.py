@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 from sql_connection import get_sql_connection
+from flask_cors import CORS
 import products_dao
 import orders_dao
 import uom_dao
@@ -8,9 +9,13 @@ import json
 
 # Initialize Flask app
 app = Flask(__name__, static_folder="../ui", template_folder="../ui")
-
+CORS(app) 
 # Establish MySQL connection
 connection = get_sql_connection()
+
+@app.route('/api/test', methods=['GET'])
+def test_endpoint():
+    return jsonify({"message": "Backend is working!"})
 
 # Serve the main HTML page
 @app.route('/')
